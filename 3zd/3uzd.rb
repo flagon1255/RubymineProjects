@@ -29,3 +29,26 @@ vig = Vigenere. new
 puts vig.encrypt('labas', [3, 2, 6])
 
 puts vig.decrypt('ochdu', [3, 2, 6])
+
+# frozen_string_literal: true
+
+require 'test/unit'
+
+
+class TestVigenere < Test::Unit::TestCase
+  def test_vig
+    @vig = Vigenere.new
+
+    @rez = @vig.encrypt('labas', [3, 2, 6])
+    puts @rez
+    assert_equal @rez,'ochdu'
+  end
+
+  def test_decvig
+    @vig = Vigenere.new
+
+    @rez = @vig.decrypt('ochdu', [3, 2, 6])
+    puts @rez
+    assert_equal @rez,'labas'
+  end
+end
